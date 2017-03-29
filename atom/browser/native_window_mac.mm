@@ -355,6 +355,7 @@ bool ScopedDisableResize::disable_resize_ = false;
 - (void)enableWindowButtonsOffset;
 - (void)resetTouchBar:(const std::vector<mate::PersistentDictionary>&)settings;
 - (void)refreshTouchBarItem:(const std::string&)item_id;
+- (void)setEscapeTouchBarItem:(const mate::PersistentDictionary&)item;
 
 @end
 
@@ -397,7 +398,7 @@ bool ScopedDisableResize::disable_resize_ = false;
     return nil;
 }
 
--(void)setEscapeTouchBarItem:(mate::PersistentDictionary)item {
+- (void)setEscapeTouchBarItem:(const mate::PersistentDictionary&)item {
   if (atom_touch_bar_ && self.touchBar)
     [atom_touch_bar_ setEscapeTouchBarItem:item forTouchBar:self.touchBar];
 }
